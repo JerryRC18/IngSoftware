@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/mipagina",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "imagine",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {"phpmailer/phpmailer": "v6.5.1"
+  }
+}
