@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <historial.h>
+#include <QTableWidgetItem>
 #include <QMainWindow>
 #include <QtSql>
 #include <QSqlDatabase>
@@ -20,16 +22,17 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_insertButton_clicked();
+    void changeWindow();
 
-    void on_updatButton_clicked();
+    void on_pushButton_clicked();
 
-    void on_deleteButton_clicked();
+    void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
 
 private:
+    Historial *historial;
+    QTimer *timer;
     Ui::MainWindow *ui;
+    bool hasInit;
     QSqlDatabase db;
-    bool connected;
-    int currentID;
 };
 #endif // MAINWINDOW_H
