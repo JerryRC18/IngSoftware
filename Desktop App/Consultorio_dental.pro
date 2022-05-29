@@ -11,15 +11,18 @@ CONFIG += c++17
 SOURCES += \
     historial.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    update.cpp
 
 HEADERS += \
     historial.h \
-    mainwindow.h
+    mainwindow.h \
+    update.h
 
 FORMS += \
     historial.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    update.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
