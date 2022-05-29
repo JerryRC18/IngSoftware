@@ -24,6 +24,7 @@ private slots:
     void on_accept_clicked();
 
 private:
+    int currentIndex = 0;
     Ui::Historial *ui;
     QSqlDatabase db;
 };
