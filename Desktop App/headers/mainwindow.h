@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <historial.h>
+#include <update.h>
 #include <QTableWidgetItem>
+#include <QMessageBox>
 #include <QMainWindow>
 #include <QtSql>
 #include <QSqlDatabase>
@@ -24,12 +26,19 @@ public:
 private slots:
     void changeWindow();
 
+    void on_clicked();
+
     void on_pushButton_clicked();
 
     void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Historial *historial;
+    class::update *update;
     QTimer *timer;
     Ui::MainWindow *ui;
     bool hasInit;
