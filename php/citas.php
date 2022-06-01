@@ -68,6 +68,8 @@
                                     <input type="text" class="form-control mb-3" name="cit_fecha" placeholder="Fecha">
                                     <input type="text" class="form-control mb-3" name="cit_hora" placeholder="Hora">
                                     <input type="text" class="form-control mb-3" name="cit_realizada" placeholder="Realizada">
+                                    <input type="text" class="form-control mb-3" name="cit_id_usu" placeholder="Id Usuario">
+                                    <input type="text" class="form-control mb-3" name="cit_servicio" placeholder="Servicio. Ej: Dentista">                                                                
                                                                        
                                     <input type="submit" class="btn btn-primary">
                                     <a href="../" class="btn btn-primary">Volver</a>
