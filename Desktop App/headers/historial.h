@@ -2,6 +2,7 @@
 #define CITA_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QTableWidgetItem>
 #include <QtSql>
 #include <QSqlDatabase>
