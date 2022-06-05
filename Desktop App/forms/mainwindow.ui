@@ -19,72 +19,167 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="maximumSize">
-       <size>
-        <width>1100</width>
-        <height>800</height>
-       </size>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <column>
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Fecha</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hora</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Servicio</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Usuario</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Realizada</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Delete</string>
-       </property>
-      </column>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Agendar cita</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Modificar citas</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Refrescar citas</string>
-      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QWidget" name="gridLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>120</y>
+          <width>411</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>username</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="user_name"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="password"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>password</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="login">
+           <property name="text">
+            <string>Login</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>50</y>
+          <width>421</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Consultorio dental Login</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>282</y>
+          <width>774</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Agendar cita</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>326</y>
+          <width>774</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Modificar citas</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>370</y>
+          <width>774</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Refrescar citas</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-6</y>
+          <width>774</width>
+          <height>279</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1100</width>
+          <height>800</height>
+         </size>
+        </property>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Fecha</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hora</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Servicio</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Usuario</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Realizada</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -101,6 +196,15 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>user_name</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>login</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_3</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
