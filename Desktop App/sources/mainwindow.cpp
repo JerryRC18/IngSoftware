@@ -10,11 +10,13 @@ MainWindow::MainWindow(QWidget *parent)
     historial = new Historial();
     update = new class::update();
 
+    ui->password->setEchoMode(ui->password->Password);
+
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("127.0.0.1");
-    db.setUserName("EduardoGC");
-    db.setPassword("+BaalLordOfDestruction1");
-    db.setDatabaseName("dentista");
+    db.setHostName("bd5s63srxd7fvmbw3cai-mysql.services.clever-cloud.com");
+    db.setUserName("urcwxsqgdun2tukm");
+    db.setPassword("8QDCaE22vYVXmlNxIjNn");
+    db.setDatabaseName("bd5s63srxd7fvmbw3cai");
 
     if (db.open()) {
         QSqlQuery query;
@@ -35,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
                QTableWidgetItem* usuItem = new QTableWidgetItem(usu_id);
                QPushButton* btn = new QPushButton();
                btn->setText("Delete");
-               connect(btn, &QPushButton::clicked, this, &MainWindow::on_clicked);
+               connect(btn, &QPushButton::clicked, this, &MainWindow::on_delete_clicked);
                QPushButton* btn2 = new QPushButton();
                btn2->setText("Edit");
 
@@ -105,24 +107,12 @@ void MainWindow::on_pushButton_clicked()
     historial->show();
 }
 
-void MainWindow::on_tableWidget_itemDoubleClicked(QTableWidgetItem *item)
+void MainWindow::on_pushButton_2_clicked()
 {
-    if(hasInit) {
-        QString id = ui->tableWidget->item(item->row(),0)->data(0).toString();
-        QString fecha = ui->tableWidget->item(item->row(),1)->data(0).toString();
-        QString hora = ui->tableWidget->item(item->row(),2)->data(0).toString();
-
-        QSqlQuery query;
-        if(query.exec("UPDATE citas SET cit_fecha = '" + fecha + "' ,cit_hora = '" + hora +"' WHERE cit_id = " + id)) {
-
-        }
-        else {
-        qDebug() << query.lastError().text();
-        }
-    }
+    update->show();
 }
 
-void MainWindow::on_clicked(){
+void MainWindow::on_delete_clicked(){
 
     QString Id = ui->tableWidget->item(ui->tableWidget->currentRow(), 0)->text();
     QMessageBox::StandardButton reply = QMessageBox::information(this, "Borrar registro", "Esta seguro de que desea borrar el registro?",QMessageBox::StandardButton::Yes | QMessageBox::StandardButton::No);
@@ -138,13 +128,6 @@ void MainWindow::on_clicked(){
         }
     }
 }
-
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    update->show();
-}
-
 
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -168,7 +151,7 @@ void MainWindow::on_pushButton_3_clicked()
                QTableWidgetItem* usuItem = new QTableWidgetItem(usu_id);
                QPushButton* btn = new QPushButton();
                btn->setText("Delete");
-               connect(btn, &QPushButton::clicked, this, &MainWindow::on_clicked);
+               connect(btn, &QPushButton::clicked, this, &MainWindow::on_delete_clicked);
                QPushButton* btn2 = new QPushButton();
                btn2->setText("Edit");
 
@@ -200,3 +183,26 @@ void MainWindow::on_pushButton_3_clicked()
     }
 }
 
+
+void MainWindow::on_login_clicked()
+{
+    QString username = ui->user_name->text();
+    QString password = ui->password->text();
+    if(username == "dentista" && password == "contrasena" )
+        ui->stackedWidget->setCurrentIndex(1);
+    else {
+        ui->user_name->clear();
+        ui->password->clear();
+    }
+    QSqlQuery query;
+    if(query.exec("SELECT ad_id FROM admin WHERE ad_correo = '" +username+"' AND ad_contrasena = '" +password+ "'")) {
+        if(query.size() > 0)
+            ui->stackedWidget->setCurrentIndex(1);
+        else
+            QMessageBox::warning(this, "Login failed", "Invalid username or password.");
+    }
+    else {
+        ui->user_name->clear();
+        ui->password->clear();
+    }
+}
