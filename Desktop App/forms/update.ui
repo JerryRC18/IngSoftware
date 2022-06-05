@@ -6,94 +6,73 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>730</width>
-    <height>500</height>
+    <width>500</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
-    <width>730</width>
-    <height>500</height>
+    <width>500</width>
+    <height>350</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>651</width>
-      <height>361</height>
+      <x>20</x>
+      <y>110</y>
+      <width>421</width>
+      <height>226</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="1">
-      <widget class="QCheckBox" name="realizada">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="servicio"/>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>YYYY-MM-DD</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Hora:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Servicio::</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Realizada:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="fecha"/>
-     </item>
-     <item row="5" column="1">
+     <item row="6" column="1">
       <widget class="QPushButton" name="actualizar">
        <property name="text">
         <string>Actualizar</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>HH:MM:SS</string>
-       </property>
-      </widget>
+     <item row="5" column="1">
+      <widget class="QComboBox" name="servicio"/>
      </item>
-     <item row="1" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Fecha:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="hora"/>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Hora:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QCheckBox" name="realizada">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="paciente"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Servicio::</string>
+       </property>
+      </widget>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_8">
@@ -102,16 +81,37 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="paciente"/>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Realizada:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDateEdit" name="date">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTimeEdit" name="time">
+       <property name="displayFormat">
+        <string>hh:mm:ss</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
+      <x>20</x>
+      <y>60</y>
       <width>240</width>
       <height>51</height>
      </rect>
@@ -143,19 +143,45 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>331</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Modificar una cita</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>730</width>
+     <width>500</width>
      <height>30</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>id</tabstop>
+  <tabstop>buscar</tabstop>
+  <tabstop>paciente</tabstop>
+  <tabstop>realizada</tabstop>
+  <tabstop>servicio</tabstop>
+  <tabstop>actualizar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
