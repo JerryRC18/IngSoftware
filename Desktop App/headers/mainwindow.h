@@ -26,15 +26,15 @@ public:
 private slots:
     void changeWindow();
 
-    void on_clicked();
+    void on_delete_clicked();
 
     void on_pushButton_clicked();
-
-    void on_tableWidget_itemDoubleClicked(QTableWidgetItem *item);
 
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_login_clicked();
 
 private:
     Historial *historial;
