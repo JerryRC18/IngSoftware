@@ -64,27 +64,51 @@
                         <div class="col-md-3">
                             <h1>Ingrese datos para agendar una nueva cita</h1>
                                 <form action="insertar.php" method="POST">
+                                    <input type="date" class="form-control mb-3" name="cit_fecha" placeholder="Fecha">
+                                    <input type="time" class="form-control mb-3" name="cit_hora" placeholder="Hora">
+                                    
+                                    <label>Usuario ID</label>
+                                    <select name="cit_id_usu">
+                                    <option value="0">Seleccione</option>
+                                    <?php
+                                        $servicios_id_usu="SELECT *  FROM usuarios";
+                                        $resultado_id_usu=mysqli_query($conn,$servicios_id_usu);
 
-                                    <input type="text" class="form-control mb-3" name="cit_fecha" placeholder="Fecha">
-                                    <input type="text" class="form-control mb-3" name="cit_hora" placeholder="Hora">
-                                    <input type="text" class="form-control mb-3" name="cit_realizada" placeholder="Realizada">
-                                    <input type="text" class="form-control mb-3" name="cit_id_usu" placeholder="Id Usuario">
-                                    <input type="text" class="form-control mb-3" name="cit_servicio" placeholder="Servicio. Ej: Dentista">                                                                
-                                                                       
-                                    <input type="submit" class="btn btn-primary">
-                                    <a href="../" class="btn btn-primary">Volver</a>
+                                        while ($valores_id_usu=mysqli_fetch_array($resultado_id_usu)) {
+                                    
+                                            echo '<option value="'.$valores_id_usu['usu_id'].'">'.$valores_id_usu['usu_id'].'</option>';
+                                    
+                                        }
+                                    ?>
+                                    </select><br><br>
+                                    
+                                    <label>Servicio</label>
+                                    <select name="cit_servicio">
+                                    <option value="0">Seleccione</option>
+                                    <?php
+                                        $servicios="SELECT *  FROM servicios";
+                                        $resultado=mysqli_query($conn,$servicios);
+
+                                        while ($valores=mysqli_fetch_array($resultado)) {
+                                    
+                                            echo '<option value="'.$valores['serv_nombre'].'">'.$valores['serv_nombre'].'</option>';
+                                    
+                                        }
+                                    ?>
+                                    </select>
+                                                                                                                                         
+                                    <input type="submit" class="btn btn-primary" value="Agendar">
                                 </form>
                         </div>
-
+                                    
                         <div class="col-md-8">
                             <table class="table" >
                                 <thead class="table-success table-striped" >
                                     <tr>
-                                        <th>Id Cita</th>
+                                    <th>ID</th>
                                         <th>Fecha</th>
                                         <th>Hora</th>
                                         <th>Realizada</th>
-                                        <th>Id Usuario</th>
                                         <th>Servicio</th>
                                         <th></th>
                                     </tr>
@@ -96,15 +120,12 @@
                                             while($row=mysqli_fetch_array($query)){
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['cit_id']?></th>
+                                            <th><?php  echo $row['cit_id']?></th>
                                                 <th><?php  echo $row['cit_fecha']?></th>
                                                 <th><?php  echo $row['cit_hora']?></th>
                                                 <th><?php  echo $row['cit_realizada']?></th>
-                                                <th><?php  echo $row['cit_id_usu']?></th>
                                                 <th><?php  echo $row['cit_servicio']?></th>    
-                                                <th><a href="actualizar.php?id=<?php echo $row['cit_id'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="delete.php?id=<?php echo $row['cit_id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
-                                            </tr>
+                                                </tr>
                                         <?php 
                                             }
                                         ?>

@@ -14,9 +14,10 @@
               VALUES('$nombre_completo','$correo','$telefono','$password')";
     
 
+    
     //Verifica que los campos no esten vacios
-    $verificar_usuario = mysqli_query($conn, "SELECT * FROM usuarios WHERE usu_nombre = '$nombre_completo' ");
-    if(mysqli_num_rows($verificar_usuario) == " "){
+    //$verificar_usuario = mysqli_query($conn, "SELECT * FROM usuarios WHERE usu_nombre = '$nombre_completo' ");
+    if($nombre_completo == '' || $correo == '' || $telefono == '' || $password == ''){
                echo '
             <script>
                 alert("Todos los campos deben llenarse");
