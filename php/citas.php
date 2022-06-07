@@ -105,10 +105,8 @@
                             <table class="table" >
                                 <thead class="table-success table-striped" >
                                     <tr>
-                                    <th>ID</th>
                                         <th>Fecha</th>
                                         <th>Hora</th>
-                                        <th>Realizada</th>
                                         <th>Servicio</th>
                                         <th></th>
                                     </tr>
@@ -120,12 +118,10 @@
                                             while($row=mysqli_fetch_array($query)){
                                         ?>
                                             <tr>
-                                            <th><?php  echo $row['cit_id']?></th>
                                                 <th><?php  echo $row['cit_fecha']?></th>
                                                 <th><?php  echo $row['cit_hora']?></th>
-                                                <th><?php  echo $row['cit_realizada']?></th>
                                                 <th><?php  echo $row['cit_servicio']?></th>    
-                                                </tr>
+                                            </tr>
                                         <?php 
                                             }
                                         ?>
