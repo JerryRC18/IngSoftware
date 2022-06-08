@@ -1,83 +1,66 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
-session_start();
-// If the user is not logged in redirect to the login page...
-if (isset($_SESSION['loggedin'])) {
-    header('Location: home.php');
-    exit;
-}
+    session_start();
+
+    if(isset($_SESSION['usuario'])){
+        header("location: servicios.php");
+        exit;
+    }
 
 ?>
+
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>My Login/Sign Up Page</title>
-    <link rel="stylesheet" href="src/styles.css">
-    <script src="include/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <form class="form" id="login">
-            <h1 class="form__title">Ingrese</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="username" class="form__input" autofocus placeholder="Username or email">
-                <div class="form__input-error-message"></div>
+    <main>
+        <div class="contenedor__all">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para ingresar a la pagina</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Registrate iniciar sesión</p>
+                    <button id="btn__registrarse">Registrarse</button>
+                </div>
             </div>
-            <div class="form__input-group">
-                <input type="password" id="password" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
+            <!--contenerdor de formulario de login y registro-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form action="php/login_usuario_be.php" method="POST" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Correo Electronico" name="correo">
+                    <input type="password" placeholder="Contraseña" name="password">
+                    <button>Ingresar</button>
+                </form>
+
+                <!--Sign up-->
+                <form action="php/registro_usuario_be.php" method="POST" class="formulario__register">
+                    <h2>Registrarse</h2>
+                    <input type="text" placeholder="Nombre Completo" name="nombre_completo">
+                    <input type="text" placeholder="Corrreo Electronico" name="correo">
+                    <input type="text" placeholder="Telefono" name="usuario">
+                    <input type="password" placeholder="Contraseña" name="password">
+                    <button>Registrarse</button>
+                </form>
+                
             </div>
-            <button class="form__button" type="submit">Continuar</button>
-            <p class="form__text">
-                <a href="./" class="form__link" id="linkResetPassword">Recuperar contraseña</a>
-            </p>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkCreateAccount">¿No tiene una cuenta? Cree una aqui</a>
-            </p>
-        </form>
-        <form class="form form--hidden" id="resetPassword">
-            <h1 class="form__title">Reiniciar contraseña</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="email" class="form__input" autofocus placeholder="email">
-                <div class="form__input-error-message"></div>
-            </div>
-            <button class="form__button" type="submit">Continuar</button>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkSignIn">¿Ya tiene una cuenta? Ingrese aqui</a>
-            </p>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkRegisterAccount">¿No tiene una cuenta? Cree una aqui</a>
-            </p>
-        </form>
-        <form class="form form--hidden" id="createAccount">
-            <h1 class="form__title">Cree su cuenta</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" id="signupPassword2" class="form__input" autofocus placeholder="Confirm Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <button class="form__button" type="submit">Continuar</button>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkLogin">¿Ya tiene una cuenta? Ingrese aqui</a>
-            </p>
-        </form>
-    </div>
-    <script src="./src/main.js"></script>
+            
+            
+        </div>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
