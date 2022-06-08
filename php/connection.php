@@ -3,7 +3,7 @@ function conectar(){
     $servername = "bd5s63srxd7fvmbw3cai-mysql.services.clever-cloud.com";  
     $username = "urcwxsqgdun2tukm";  
     $password = "8QDCaE22vYVXmlNxIjNn";  
-    $database = "bd5s63srxd7fvmbw3cai";   
+    $database = "bd5s63srxd7fvmbw3cai"; 
 
 /*
 $servername = "bd5s63srxd7fvmbw3cai-mysql.services.clever-cloud.com";  

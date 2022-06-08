@@ -2,7 +2,7 @@
     session_start();
 
     if(isset($_SESSION['usuario'])){
-        header("location: bienvenida.php");
+        header("location: servicios.php");
         exit;
     }
 
@@ -41,7 +41,7 @@
                 <form action="php/login_usuario_be.php" method="POST" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electronico" name="correo">
-                    <input type="text" placeholder="Contraseña" name="password">
+                    <input type="password" placeholder="Contraseña" name="password">
                     <button>Ingresar</button>
                 </form>
 

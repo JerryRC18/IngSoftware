@@ -13,6 +13,6 @@ $sql="UPDATE citas SET cit_fecha='$fecha', cit_hora='$hora', cit_realizada='$rea
 $query=mysqli_query($conn,$sql);
 
     if($query){
-        Header("Location: citas.php");
+        Header("Location: historialcitas.php");
     }
 ?>

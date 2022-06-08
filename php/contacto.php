@@ -8,7 +8,7 @@
     }
 ?>
 <?php 
-    include 'php/connection.php';
+    include 'connection.php';
     $conn=conectar();
 
     $sql="SELECT *  FROM dentistas";
@@ -22,9 +22,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/css/material-design-iconic-font.css">
-    <link rel="stylesheet" href="assets/css/styles3.css">
+    <link rel="stylesheet" href="../assets/css/bulma.min.css">
+    <link rel="stylesheet" href="../assets/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="../assets/css/styles3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Dentistas</title>
 
@@ -43,13 +43,13 @@
         </nav>
 
         <nav class="nav-menu" id="mySidenav">
-                <a class="is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark" href="servicios.php">SERVICIOS</a>
+                <a class="is-hidden-mobile brand is-uppercase has-text-weight-bold has-text-dark" href="../servicios.php">SERVICIOS</a>
                 <ul class="nav-menu-ul">
-                <li class="nav-menu-item"><a href="php/contacto.php" class="nav-menu-link">CONTACTANOS</a></li>
-                    <li class="nav-menu-item"><a href="php/nuevacita.php" class="nav-menu-link">NUEVA CITA</a></li>
-                    <li class="nav-menu-item"><a href="php/historialcitas.php" class="nav-menu-link">HISTORIAL DE CITAS</a></li>
-                    <li class="nav-menu-item"><a href="dentistas.php"  class="nav-menu-link">DENTISTAS</a></li>
-                    <li class="nav-menu-item"><a href="php/cerrar_sesion.php" class="nav-menu-link">CERRAR SESION</a></li>
+                    <li class="nav-menu-item"><a href="contacto.php" class="nav-menu-link">CONTACTANOS</a></li>
+                    <li class="nav-menu-item"><a href="nuevacita.php" class="nav-menu-link">NUEVA CITA</a></li>
+                    <li class="nav-menu-item"><a href="historialcitas.php" class="nav-menu-link">HISTORIAL DE CITAS</a></li>
+                    <li class="nav-menu-item"><a href="../dentistas.php"  class="nav-menu-link">DENTISTAS</a></li>
+                    <li class="nav-menu-item"><a href="cerrar_sesion.php" class="nav-menu-link">CERRAR SESION</a></li>
                 </ul>
             </nav>
         </nav>
