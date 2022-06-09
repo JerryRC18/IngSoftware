@@ -14,20 +14,7 @@ update::update(QWidget *parent) :
     db.setPassword("8QDCaE22vYVXmlNxIjNn");
     db.setDatabaseName("bd5s63srxd7fvmbw3cai");
     ui->paciente->setReadOnly(true);
-    if(db.open()) {
-        QSqlQuery query;
-        if (query.exec("SELECT DISTINCT serv_nombre FROM servicios")) {
-            while (query.next()) {
-                qDebug() << query.value(0);
-                ui->servicio->addItem(query.value(0).toString(), currentIndex);
-                currentIndex += 1;
-            }
-        }
-
-    }
-    else {
-        qDebug() << "No connection";
-    }
+    ui->servicio->setReadOnly(true);
     currentIndex = 0;
 }
 
@@ -69,12 +56,12 @@ void update::on_buscar_clicked()
                 ui->paciente->setText(query.value(0).toString());
                 ui->date->setDate(query.value(1).toDate());
                 ui->time->setTime(query.value(2).toTime());
+                ui->servicio->setText(query.value(4).toString());
                 if(query.value(3) == 1)
                     ui->realizada->setCheckState(Qt::Checked);
                 else
                     ui->realizada->setCheckState(Qt::Unchecked);
                 }
-                ui->servicio->setCurrentText(query.value(4).toString());
             }
             else {
                 qDebug() << query.lastError().text();
