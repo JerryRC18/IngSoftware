@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->password->setEchoMode(ui->password->Password);
 
     db = QSqlDatabase::addDatabase("QMYSQL");
+
     db.setHostName("bd5s63srxd7fvmbw3cai-mysql.services.clever-cloud.com");
     db.setUserName("urcwxsqgdun2tukm");
     db.setPassword("8QDCaE22vYVXmlNxIjNn");
@@ -20,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     if (db.open()) {
         QSqlQuery query;
-        if (query.exec("SELECT cit_id, cit_fecha, cit_hora, cit_servicio, usuarios.usu_nombre, cit_realizada FROM citas JOIN usuarios ON cit_id_usu = usuarios.usu_id")) {
+        if (query.exec("SELECT cit_id, cit_fecha, cit_hora, cit_servicio, usuarios.usu_nombre, cit_realizada FROM citas JOIN usuarios ON cit_id_usu = usuarios.usu_id ORDER BY cit_id")) {
             while (query.next()) {
                qDebug() << query.value(0) << query.value(1) << query.value(2) << query.value(3) << query.value(4) << query.value(5);
                QString id = query.value(0).toString();
@@ -133,7 +134,7 @@ void MainWindow::on_pushButton_3_clicked()
 {
     if (db.open()) {
         QSqlQuery query;
-        if (query.exec("SELECT cit_id, cit_fecha, cit_hora, cit_servicio, usuarios.usu_nombre, cit_realizada FROM citas JOIN usuarios ON cit_id_usu = usuarios.usu_id")) {
+        if (query.exec("SELECT cit_id, cit_fecha, cit_hora, cit_servicio, usuarios.usu_nombre, cit_realizada FROM citas JOIN usuarios ON cit_id_usu = usuarios.usu_id ORDER BY cit_id")) {
            ui->tableWidget->setRowCount(0);
             while (query.next()) {
                qDebug() << query.value(0) << query.value(1) << query.value(2) << query.value(3) << query.value(4) << query.value(5);
